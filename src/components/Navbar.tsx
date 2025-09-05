@@ -33,8 +33,8 @@ const Navbar: React.FC = () => {
 
   const handleDownloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/resume.pdf';
-    link.download = 'Muhammad_Abdullah_Latif_Resume.pdf';
+    link.href = '/Abdullah_Resume.pdf';
+    link.download = 'Abdullah_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

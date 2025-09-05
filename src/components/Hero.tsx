@@ -4,8 +4,8 @@ const Hero: React.FC = () => {
   const handleDownloadResume = () => {
     // Create a temporary anchor element to trigger download of local resume file
     const link = document.createElement('a');
-    link.href = '/resume.pdf';
-    link.download = 'Muhammad_Abdullah_Latif_Resume.pdf';
+    link.href = '/Abdullah_Resume.pdf';
+    link.download = 'Abdullah_Resume.pdf';
     
     // Append to body, click, and remove
     document.body.appendChild(link);
