@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
               Software Engineer
             </h2>
             <p className="text-lg text-text-secondary mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
-              I am a Software Engineering graduate passionate about mobile app development. I specialize in building native iOS apps with Swift and SwiftUI, and Android apps using Java/Kotlin & XML. I enjoy creating efficient, user-friendly, and impactful digital solutions that solve real-<span style={{ color: '#014C8D' }}>world problems</span>.
+              I am a Software Engineering graduate passionate about mobile app development. I specialize in building native iOS apps with Swift and SwiftUI, and Android apps using Java/Kotlin & XML. I enjoy creating efficient, user-friendly, and impactful digital solutions that solve real-<span className="text-text-secondary">world problems</span>.
             </p>
             
             {/* Resume Download Button */}

@@ -14,6 +14,7 @@ const Education: React.FC = () => {
         "Software requirements specification (SRS) documentation",
         "Gained hands-on experience with modern development tools and frameworks"
       ],
+      image: "/ucp.jpeg",
       icon: (
         <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
@@ -29,6 +30,7 @@ const Education: React.FC = () => {
         "Mathematics and logical thinking development",
         "Academic excellence in computer-related subjects"
       ],
+      image: "/pakturk.jpeg",
       icon: (
         <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
@@ -58,11 +60,16 @@ const Education: React.FC = () => {
           {educationData.map((item, index) => (
             <div key={index} className="p-8 border border-border-light rounded-2xl hover:border-primary/40 transition-all duration-300">
               {/* Education Header */}
-              <div className="flex items-start mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center mr-4 shadow-lg flex-shrink-0">
-                  {item.icon}
+              <div className="mb-6">
+                {/* Institution Image */}
+                <div className="w-full h-48 rounded-xl overflow-hidden mb-4 shadow-lg">
+                  <img 
+                    src={item.image} 
+                    alt={item.institution}
+                    className={`w-full h-full ${item.institution.includes('Central Punjab') ? 'object-contain' : 'object-cover'}`}
+                  />
                 </div>
-                <div className="flex-1">
+                <div>
                   <h3 className="text-2xl font-bold text-text-primary mb-2">
                     {item.degree}
                   </h3>

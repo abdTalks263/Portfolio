@@ -17,7 +17,11 @@ const About: React.FC = () => {
         {/* About Content */}
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-lg text-text-secondary leading-relaxed mb-8">
-            I am a passionate Software Engineering graduate from the University of Central Punjab, Lahore, with expertise in native iOS and Android development. I focus on creating clean, user-friendly applications that solve real-<span style={{ color: '#014C8D' }}>world problems</span>.
+            I am a Software Engineering graduate passionate about mobile app development. I specialize in building native iOS apps with Swift and SwiftUI, and Android apps using Java/Kotlin & XML. I enjoy creating efficient, user-friendly, and impactful digital solutions that solve real-world problems.
+          </p>
+          
+          <p className="text-lg text-text-secondary leading-relaxed mb-8">
+            My portfolio showcases a diverse range of projects, from full-stack web applications like Contact Management and Connectify PK, to native mobile apps including GiftWave and Gym Guide Pro. Each project demonstrates my commitment to clean code, modern development practices, and delivering exceptional user experiences.
           </p>
           
           {/* Call to Action Buttons */}
