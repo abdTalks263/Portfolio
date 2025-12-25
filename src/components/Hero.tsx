@@ -40,16 +40,16 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen bg-gradient-to-br from-dark via-dark-light to-dark flex items-center justify-center relative overflow-hidden">
+    <section id="hero" className="min-h-screen bg-gradient-to-br from-dark via-dark-light to-dark flex items-center justify-center relative overflow-hidden pt-20 md:pt-0">
       {/* Background decorative elements */}
       <div className="absolute top-20 right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-20 left-20 w-64 h-64 bg-secondary/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 py-8 md:py-0">
         {/* Hero Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}
-          <div ref={heroRef} className="order-2 lg:order-1 text-center lg:text-left pt-16 lg:pt-24">
+          <div ref={heroRef} className="order-2 lg:order-1 text-center lg:text-left pt-8 md:pt-16 lg:pt-24">
             <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-text-primary mb-4 animate-fade-in-up leading-tight">
               <span className="gradient-text">M. Abdullah</span> <br /> <span className="gradient-text">Latif</span>
             </h1>
@@ -92,13 +92,13 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Profile Image */}
-          <div ref={imageRef} className="order-1 lg:order-2 flex justify-center lg:justify-end">
+          <div ref={imageRef} className="order-1 lg:order-2 flex justify-center lg:justify-end pt-8 md:pt-0">
             <div className="relative">
               <div className="absolute inset-0 bg-primary/30 rounded-full blur-2xl animate-pulse"></div>
               <img
                 src="/profile.png"
                 alt="Muhammad Abdullah Latif"
-                className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover shadow-2xl border-4 border-primary/20 hover:border-primary/40 transition-all duration-500 hover:scale-105 animate-float"
+                className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover shadow-2xl border-4 border-primary/20 hover:border-primary/40 transition-all duration-500 hover:scale-105 animate-float"
               />
             </div>
           </div>
