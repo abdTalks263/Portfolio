@@ -36,7 +36,7 @@ const Experience: React.FC = () => {
     {
       title: "Mobile & Web Developer (iOS, Android & Micro-Frontend)",
       company: "Medway Inc",
-      period: "September 2025 – December 2025",
+      period: "September 2025 – Current",
       responsibilities: [
         "Developed and maintained iOS (Swift/SwiftUI) and Android (Kotlin) applications",
         "Integrated backend APIs for authentication and real-time data handling",
