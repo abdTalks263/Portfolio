@@ -1,13 +1,39 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 const Hero: React.FC = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            entry.target.classList.remove('fade-in-on-scroll');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (heroRef.current) {
+      heroRef.current.classList.add('fade-in-on-scroll');
+      observer.observe(heroRef.current);
+    }
+
+    if (imageRef.current) {
+      imageRef.current.classList.add('fade-in-on-scroll');
+      observer.observe(imageRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const handleDownloadResume = () => {
-    // Create a temporary anchor element to trigger download of local resume file
     const link = document.createElement('a');
     link.href = '/Abdullah_Resume.pdf';
     link.download = 'Abdullah_Resume.pdf';
-    
-    // Append to body, click, and remove
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -15,39 +41,38 @@ const Hero: React.FC = () => {
 
   return (
     <section id="hero" className="min-h-screen bg-gradient-to-br from-dark via-dark-light to-dark flex items-center justify-center relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-dark via-dark-light to-dark"></div>
+      {/* Background decorative elements */}
+      <div className="absolute top-20 right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 left-20 w-64 h-64 bg-secondary/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         {/* Hero Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}
-          <div className="order-2 lg:order-1 text-center lg:text-left">
-            <h1 className="text-5xl md:text-6xl font-bold text-text-primary mb-6">
-              Muhammad Abdullah Latif
+          <div ref={heroRef} className="order-2 lg:order-1 text-center lg:text-left pt-16 lg:pt-24">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-text-primary mb-4 animate-fade-in-up leading-tight">
+              <span className="gradient-text">M. Abdullah</span> <br /> <span className="gradient-text">Latif</span>
             </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-6">
-              Software Engineer
+            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-primary mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+              Full Stack Developer
             </h2>
-            <p className="text-lg text-text-secondary mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
-              I am a Software Engineering graduate passionate about mobile app development. I specialize in building native iOS apps with Swift and SwiftUI, and Android apps using Java/Kotlin & XML. I enjoy creating efficient, user-friendly, and impactful digital solutions that solve real-<span className="text-text-secondary">world problems</span>.
-            </p>
             
             {/* Resume Download Button */}
             <button
               onClick={handleDownloadResume}
-              className="btn-primary mb-8"
+              className="btn-primary mb-8 animate-fade-in-up"
+              style={{ animationDelay: '0.4s' }}
             >
               Download Resume
             </button>
 
             {/* Social Media Links */}
-            <div className="flex justify-center lg:justify-start space-x-4">
+            <div className="flex justify-center lg:justify-start space-x-4 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
               <a
-                href="https://www.linkedin.com/in/abdullah-latif-70b8b7237/"
+                href="https://www.linkedin.com/in/muhammad-abdullah-latif-70b8b7237/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary hover:bg-primary/30 transition-colors duration-300"
+                className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary hover:bg-primary/30 transition-all duration-300 hover:scale-110 hover:rotate-12"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.047-1.852-3.047-1.853 0-2.136 1.445-2.136 2.939v5.677H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -57,7 +82,7 @@ const Hero: React.FC = () => {
                 href="https://github.com/abdTalks263"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary hover:bg-primary/30 transition-colors duration-300"
+                className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary hover:bg-primary/30 transition-all duration-300 hover:scale-110 hover:rotate-12"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
@@ -67,12 +92,15 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Profile Image */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <img
-              src="https://i.postimg.cc/L5RbspP0/IMG-5769.jpg"
-              alt="Muhammad Abdullah Latif"
-              className="w-[35rem] h-[35rem] rounded-2xl object-cover shadow-2xl border-4 border-primary/20"
-            />
+          <div ref={imageRef} className="order-1 lg:order-2 flex justify-center lg:justify-end">
+            <div className="relative">
+              <div className="absolute inset-0 bg-primary/30 rounded-full blur-2xl animate-pulse"></div>
+              <img
+                src="/profile.png"
+                alt="Muhammad Abdullah Latif"
+                className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover shadow-2xl border-4 border-primary/20 hover:border-primary/40 transition-all duration-500 hover:scale-105 animate-float"
+              />
+            </div>
           </div>
         </div>
       </div>
