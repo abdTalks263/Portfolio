@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
             {/* Social Links */}
             <div className="flex space-x-4 pt-2">
               <a
-                href="https://www.linkedin.com/in/abdullah-latif-70b8b7237/"
+                href="https://www.linkedin.com/in/muhammad-abdullah-latif-70b8b7237/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary hover:bg-primary/30 transition-colors duration-300"
