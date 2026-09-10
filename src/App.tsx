@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -12,16 +11,16 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App bg-background min-h-screen">
-      <Navbar />
+    <div className="App">
+      <a href="#projects" className="skip-link">Skip to projects</a>
       <main>
         <Hero />
+        <Projects />
         <About />
+        <Experience />
+        <Education />
         <Skills />
         <Services />
-        <Projects />
-        <Education />
-        <Experience />
         <Contact />
       </main>
       <Footer />

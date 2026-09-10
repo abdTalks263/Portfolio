@@ -1,44 +1,13 @@
-import React, { useEffect, useRef } from 'react';
-
+import React from 'react';
 const Experience: React.FC = () => {
-  const experienceRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const headerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            entry.target.classList.remove('fade-in-on-scroll');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (headerRef.current) {
-      headerRef.current.classList.add('fade-in-on-scroll');
-      observer.observe(headerRef.current);
-    }
-
-    experienceRefs.current.forEach((ref) => {
-      if (ref) {
-        ref.classList.add('fade-in-on-scroll');
-        observer.observe(ref);
-      }
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   const experienceData = [
     {
       title: "Mobile & Web Developer (iOS, Android & Micro-Frontend)",
       company: "Medway Inc",
-      period: "September 2025 – Current",
+      period: "September 2025 – August 2026",
       responsibilities: [
-        "Developed and maintained iOS (Swift/SwiftUI) and Android (Kotlin) applications",
+        "Developed, released, and maintained Medway’s iOS (Swift/SwiftUI) and Android (Kotlin) applications on the Apple App Store and Google Play Store",
+        "Developed and maintained client iOS applications for private deployment using Apple Private DNS setup",
         "Integrated backend APIs for authentication and real-time data handling",
         "Contributed to micro-frontend web modules with scalable, modular UI",
         "Optimized mobile and web components for performance and stability"
@@ -52,7 +21,7 @@ const Experience: React.FC = () => {
     },
     {
       title: "Full Stack Developer Intern (Frontend Focused)",
-      company: "System Limited",
+      company: "Systems Limited",
       period: "July 2025 – November 2025",
       responsibilities: [
         "Worked as a Full Stack Developer Intern, primarily focused on frontend development",
@@ -67,83 +36,6 @@ const Experience: React.FC = () => {
       gradient: "from-secondary to-secondary/80"
     }
   ];
-
-  return (
-    <section id="experience" className="py-20 bg-dark-light relative overflow-hidden">
-      {/* Section Divider */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
-      
-      {/* Background decorative elements */}
-      <div className="absolute top-20 right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-64 h-64 bg-secondary/5 rounded-full blur-3xl"></div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
-        <div ref={headerRef} className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="gradient-text">Experience</span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-4"></div>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-            My professional journey and contributions in software development.
-          </p>
-        </div>
-
-        {/* Experience Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {experienceData.map((item, index) => (
-            <div 
-              key={index} 
-              ref={(el) => { experienceRefs.current[index] = el; }}
-              className="bg-dark/50 backdrop-blur-sm border border-border-light rounded-2xl p-8 hover:border-primary/40 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20 group"
-              style={{ transitionDelay: `${index * 0.1}s` }}
-            >
-              {/* Experience Header */}
-              <div className="mb-6">
-                <div className="flex items-start mb-4">
-                  <div className={`w-14 h-14 bg-gradient-to-br ${item.gradient} rounded-xl flex items-center justify-center mr-4 flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <div className="text-white">
-                      {item.icon}
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-text-primary mb-1">
-                      <span className="gradient-text">{item.title}</span>
-                    </h3>
-                    <p className="text-lg text-primary font-semibold mb-1">
-                      {item.company}
-                    </p>
-                    <p className="text-text-secondary">
-                      {item.period}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Responsibilities */}
-              <div className="space-y-3">
-                <h4 className="text-lg font-semibold text-text-primary mb-3 flex items-center">
-                  <span className="w-1 h-6 bg-gradient-to-b from-primary to-secondary rounded-full mr-3"></span>
-                  Key Responsibilities:
-                </h4>
-                <ul className="space-y-2">
-                  {item.responsibilities.map((responsibility, responsibilityIndex) => (
-                    <li key={responsibilityIndex} className="flex items-start text-text-secondary hover:text-text-primary transition-colors duration-300">
-                      <svg className="w-4 h-4 text-primary mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293z"/>
-                      </svg>
-                      {responsibility}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return <section id="experience" className="section record-section"><h2>EXPERIENCE<span className="accent">.</span></h2><div className="record-list">{experienceData.map(item => <article className="record" key={item.company}><h3>{item.company}</h3><div><h4>{item.title}</h4><ul>{item.responsibilities.map(text => <li key={text}>{text}</li>)}</ul></div><span className="record-date">{item.period}</span></article>)}</div></section>;
 };
-
 export default Experience;
-
