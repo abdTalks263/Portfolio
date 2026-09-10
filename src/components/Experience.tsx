@@ -36,6 +36,27 @@ const Experience: React.FC = () => {
       gradient: "from-secondary to-secondary/80"
     }
   ];
-  return <section id="experience" className="section record-section"><h2>EXPERIENCE<span className="accent">.</span></h2><div className="record-list">{experienceData.map(item => <article className="record" key={item.company}><h3>{item.company}</h3><div><h4>{item.title}</h4><ul>{item.responsibilities.map(text => <li key={text}>{text}</li>)}</ul></div><span className="record-date">{item.period}</span></article>)}</div></section>;
+  return (
+    <section id="experience" className="section record-section">
+      <h2>EXPERIENCE<span className="accent">.</span></h2>
+      <div className="record-list">
+        {experienceData.map(item => (
+          <article className="record" key={item.company}>
+            <h3>{item.company}</h3>
+            <div>
+              <h4>{item.title}</h4>
+              <details className="project-details experience-details">
+                <summary>KEY RESPONSIBILITIES & HIGHLIGHTS <span aria-hidden="true">↓</span></summary>
+                <ul>
+                  {item.responsibilities.map(text => <li key={text}>{text}</li>)}
+                </ul>
+              </details>
+            </div>
+            <span className="record-date">{item.period}</span>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
 };
 export default Experience;

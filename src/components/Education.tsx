@@ -39,6 +39,27 @@ const Education: React.FC = () => {
       gradient: "from-secondary to-secondary/80"
     }
   ];
-  return <section id="education" className="section record-section"><h2>EDUCATION<span className="accent">.</span></h2><div className="record-list">{educationData.map(item => <article className="record" key={item.degree}><h3>{item.degree}</h3><div><h4>{item.institution}</h4><details className="education-details"><summary>Coursework & focus areas</summary><ul>{item.achievements.map(text => <li key={text}>{text}</li>)}</ul></details></div><span className="record-date">{item.period}</span></article>)}</div></section>;
+  return (
+    <section id="education" className="section record-section">
+      <h2>EDUCATION<span className="accent">.</span></h2>
+      <div className="record-list">
+        {educationData.map(item => (
+          <article className="record" key={item.degree}>
+            <h3>{item.degree}</h3>
+            <div>
+              <h4>{item.institution}</h4>
+              <details className="project-details education-details">
+                <summary>COURSEWORK & FOCUS AREAS <span aria-hidden="true">↓</span></summary>
+                <ul>
+                  {item.achievements.map(text => <li key={text}>{text}</li>)}
+                </ul>
+              </details>
+            </div>
+            <span className="record-date">{item.period}</span>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
 };
 export default Education;

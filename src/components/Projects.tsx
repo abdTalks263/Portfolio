@@ -111,7 +111,7 @@ const Projects: React.FC = () => {
               <h3>{project.title}</h3>
               <p>{project.description}</p>
               <div className="tech-list">{project.techStack.map(tech => <span key={tech}>{tech}</span>)}</div>
-              <details className="project-details"><summary>PROJECT DETAILS <span aria-hidden="true">+</span></summary><ul>{project.features.map(feature => <li key={feature}>{feature}</li>)}</ul></details>
+              <details className="project-details"><summary>SEE DETAILS <span className="arrow" aria-hidden="true">↓</span></summary><ul>{project.features.map(feature => <li key={feature}>{feature}</li>)}</ul></details>
               <div className="project-links">{project.demo && <a className="text-link" href={project.demo} target="_blank" rel="noopener noreferrer">LIVE WEBSITE <span aria-hidden="true">↗</span></a>}<a className="text-link" href={project.github} target="_blank" rel="noopener noreferrer">VIEW CODE <span aria-hidden="true">↗</span></a></div>
             </div>
           </article>
