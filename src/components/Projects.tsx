@@ -14,7 +14,7 @@ const Projects: React.FC = () => {
       techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "AI/ML", "RESTful APIs", "Live Events API"],
       image: "/Sportify.png",
       github: "https://github.com/Nomanijaz58/frontend-sportify.git",
-      demo: "https://frontend-sportify.onrender.com",
+      demo: "https://sportify-front-end-ocnz.vercel.app",
       category: "Web App",
       emoji: "🏆"
     },

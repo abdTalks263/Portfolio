@@ -10,8 +10,11 @@ const Hero: React.FC = () => (
       <span className="name-first" aria-hidden="true">ABDULLAH</span>
       <span className="name-second" aria-hidden="true">
         <span>LA</span>
-        <span className="portrait-window letter-t-window">
-          <img src="/profile.png" alt="Muhammad Abdullah Latif" />
+        <span className="letter-t-cutout" aria-hidden="true">
+          <span className="t-bar"></span>
+          <span className="t-stem-window">
+            <img src="/profile.png" alt="Muhammad Abdullah Latif" />
+          </span>
         </span>
         <span>IF</span>
       </span>
