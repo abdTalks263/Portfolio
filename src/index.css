@@ -72,11 +72,12 @@ h2 { font-size: clamp(36px, 5.4vw, 82px); line-height: .98; font-weight: 800; le
 .about-copy .text-link { margin-top: 18px; padding-bottom: 10px; border-bottom: 1px solid var(--muted); }
 .record-section { padding-top: 55px; padding-bottom: 65px; }
 .record-section h2 { font-size: clamp(36px, 4.8vw, 70px); margin-bottom: 45px; }
-.record { display: grid; grid-template-columns: 1fr 1.55fr .65fr; gap: 35px; padding: 36px 24px; border-top: 1px solid var(--line); border-radius: 12px; transition: transform .3s ease, background-color .3s ease, box-shadow .3s ease; }
-.record:hover { transform: scale(1.02); background: rgba(255, 255, 255, 0.02); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
-.record h3 { text-transform: uppercase; font-size: 21px; font-weight: 600; letter-spacing: -.03em; margin: 0; }
-.record h4 { font-size: 18px; margin: 0 0 16px; font-weight: 500; line-height: 1.4; }
-.record-date { text-align: right; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.record { display: grid; grid-template-columns: 1fr 1.55fr .65fr; gap: 35px; padding: 36px 24px; border-top: 1px solid var(--line); border-radius: 12px; transition: transform .3s ease, background-color .3s ease, color .3s ease, box-shadow .3s ease; }
+.record:hover { transform: scale(1.02); background: #ffffff; color: #0a0a0a; box-shadow: 0 16px 40px rgba(255, 255, 255, 0.15); }
+.record:hover h3, .record:hover h4, .record:hover .record-date, .record:hover .project-details summary, .record:hover .project-details ul { color: #0a0a0a !important; }
+.record h3 { text-transform: uppercase; font-size: 21px; font-weight: 600; letter-spacing: -.03em; margin: 0; transition: color .3s ease; }
+.record h4 { font-size: 18px; margin: 0 0 16px; font-weight: 500; line-height: 1.4; transition: color .3s ease; }
+.record-date { text-align: right; color: var(--muted); font-size: 14px; line-height: 1.6; transition: color .3s ease; }
 .skill-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
 .skill-group { border-top: 1px solid var(--line); padding-top: 24px; }
 .skill-group h3 { font-size: 22px; font-weight: 500; margin: 24px 0; letter-spacing: -.035em; }
@@ -156,8 +157,9 @@ h2 { font-size: clamp(36px, 5.4vw, 82px); line-height: .98; font-weight: 800; le
 .about-photo img { aspect-ratio: 1; object-fit: contain; filter: none; border-radius: 50%; transition: transform .4s ease; }
 .about-photo:hover img { transform: scale(1.03); }
 .about-photo > span { text-align: center; margin-top: 25px; }
-.service-grid article { padding: 26px; background: #111; border: 1px solid #ffffff18; border-radius: 16px; transition: border-color .3s, transform .3s ease, box-shadow .3s ease; }
-.service-grid article:hover { border-color: #b17a5077; transform: scale(1.03); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4); }
+.service-grid article { padding: 26px; background: #111; border: 1px solid #ffffff18; border-radius: 16px; transition: border-color .3s, transform .3s ease, background-color .3s ease, color .3s ease, box-shadow .3s ease; }
+.service-grid article:hover { background: #ffffff; color: #0a0a0a; border-color: #ffffff; transform: scale(1.03); box-shadow: 0 16px 40px rgba(255, 255, 255, 0.15); }
+.service-grid article:hover h3, .service-grid article:hover p, .service-grid article:hover .service-tags { color: #0a0a0a !important; }
 @media(min-width:1800px) { .name-second { font-size: 360px; } .portrait-window { width: 324px; height: 324px; } }
 @media(max-width:700px) {
   .hero { min-height: 82svh; }
